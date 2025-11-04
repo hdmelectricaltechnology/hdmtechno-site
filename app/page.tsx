@@ -20,8 +20,8 @@ export default function Page(){
               <span className="block text-emerald-400">for Industrial, Commercial & Home</span>
             </h1>
             <p className="mt-6 max-w-3xl text-lg text-slate-300">
-              From robotics and machine vision to PLCs, controllers, and design engineering—HDM Electrical
-              Technology delivers consultation and turnkey integration that moves projects from concept to
+              From robotics and machine vision to PLCs, controllers, and design engineering— HDM Electrical
+              Technology delivers consultation and turnkey integration solutions that moves projects from concept to
               production with clarity, safety, and ROI.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">

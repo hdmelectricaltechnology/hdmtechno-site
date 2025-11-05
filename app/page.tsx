@@ -17,7 +17,7 @@ export default function Page(){
           <div className="container-max">
             <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tight">
               Automation‑Integrated Solutions
-              <span className="block text-emerald-400">for Industrial, Commercial & Home</span>
+              <span className="block text-emerald-100">for Industrial, Commercial & Home</span>
             </h1>
             <p className="mt-6 max-w-3xl text-lg text-slate-300">
               From robotics and machine vision to PLCs, controllers, and design engineering— HDM Electrical
@@ -28,7 +28,7 @@ export default function Page(){
               <a href="#services" className="btn btn-primary">Explore services</a>
               <a href="#contact" className="btn btn-outline">Request proposal</a>
               <div className="flex items-center gap-2 text-sm text-slate-400">
-                <Icon path="M9 12l2 2 4-4" /> NFPA/ISO practices • Vendor‑agnostic • Documentation‑driven
+                <Icon path="M9 12l2 2 4-4" /> NFPA/RIA/ISO 13849 practices • Vendor‑agnostic • Documentation‑driven
               </div>
             </div>
           </div>

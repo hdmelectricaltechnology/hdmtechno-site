@@ -131,7 +131,7 @@ export default function Page(){
               <h2 className="text-2xl sm:text-3xl font-bold">Start your project</h2>
               <p className="mt-4 text-slate-300 max-w-xl">Tell us about your application and desired outcomes. We’ll propose a pragmatic path that balances performance, schedule, and budget.</p>
               <div className="mt-6 space-y-3 text-slate-300 text-sm">
-                <div className="flex items-center gap-2">📞 <span>(555) 555‑0199</span></div>
+                <div className="flex items-center gap-2">📞 <span>(864) 621-2171</span></div>
                 <div className="flex items-center gap-2">✉️ <span>contact@hdmtechno.com</span></div>
                 <div className="flex items-center gap-2">📍 <span>United States • Remote & On‑site</span></div>
               </div>

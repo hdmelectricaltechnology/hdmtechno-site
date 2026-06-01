@@ -3,5 +3,5 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=...
 SMTP_PASS=...
-CONTACT_TO=contact@hdmtechno.com
-CONTACT_FROM=hdmtechno.com <no-reply@hdmtechno.com>
+CONTACT_TO=contact@hdmtechno@icloud.com
+CONTACT_FROM=hdmtechno@icloud.com <no-reply@hdmtechno@icloud.com>

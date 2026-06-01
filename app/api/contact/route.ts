@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: process.env.CONTACT_FROM || process.env.SMTP_USER,
-      to: process.env.CONTACT_TO || 'contact@hdmtechno.com',
+      to: process.env.CONTACT_TO || 'contact@hdmtechno@icloud.com',
       replyTo: email,
       subject: `New inquiry from ${name} — hdmtechno.com`,
       text: `Name: ${name}

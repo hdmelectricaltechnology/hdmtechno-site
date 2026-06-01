@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <span className="font-semibold text-slate-200">HDM Electrical Technology</span>
           <span>•</span>
-          <a className="footer-link" href="mailto:contact@hdmhiltonmitchell@gmail.com">hdmhiltonmitchell@gmail.com</a>
+          <a className="footer-link" href="mailto:contact@hdmtechno@icloud.com">hdmtechno@icloud.com</a>
         </div>
         <div className="flex items-center gap-4">
           <a className="footer-link" href="#services">Services</a>

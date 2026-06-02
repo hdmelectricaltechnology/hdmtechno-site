@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 backdrop-blur border-b border-white/10 bg-slate-950/60">
+    <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
       <div className="container-max h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-9 w-9 rounded-xl bg-emerald-400/10 grid place-items-center ring-1 ring-emerald-400/30">

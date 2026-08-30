@@ -78,6 +78,40 @@ export default function ResidentialPage() {
             </div>
 
             <div className="smart-home-visual" aria-label="Connected smart home experience graphic">
+              <div className="smart-scene-backyard" aria-hidden="true">
+                <div className="security-light-source" />
+                <div className="security-light-beam" />
+                <div className="smart-scene-status">
+                  <span><i /> SECURITY LIGHT ON</span>
+                  <strong>Backyard evening scene</strong>
+                  <small>Lighting • Security • Connected control</small>
+                </div>
+              </div>
+              <div className="camera-view-panel" aria-hidden="true">
+                <div className="camera-view-header">
+                  <div>
+                    <span><i /> FIVE CAMERAS ONLINE</span>
+                    <strong>Whole-home security view</strong>
+                  </div>
+                  <small>LIVE</small>
+                </div>
+                <div className="camera-view-grid">
+                  {['Front door', 'Driveway', 'Backyard', 'Side gate', 'Garage'].map((camera, index) => (
+                    <div key={camera} className={`camera-feed camera-feed-${index + 1}`}>
+                      <span>CAM {String(index + 1).padStart(2, '0')}</span>
+                      <strong>{camera}</strong>
+                      <i />
+                    </div>
+                  ))}
+                </div>
+                <div className="camera-device-row">
+                  <span>View on home TVs</span>
+                  <span>Apple TV</span>
+                  <span>iPhone</span>
+                  <span>iPad</span>
+                </div>
+                <p>Demonstration views. Apple-device access depends on the selected camera platform and compatible equipment.</p>
+              </div>
               <div className="smart-home-topline">
                 <span>HDM HOME</span>
                 <span className="smart-home-live"><i /> CONNECTED</span>
@@ -94,9 +128,14 @@ export default function ResidentialPage() {
                   ['VIEW', 'Security cameras'],
                   ['PLAY', 'Entertainment'],
                 ].map(([code, label], index) => (
-                  <div key={code} className={`smart-home-node smart-home-node-${index + 1}`}>
+                  <div
+                    key={code}
+                    className={`smart-home-node smart-home-node-${index + 1}`}
+                    tabIndex={index === 0 || index === 2 ? 0 : undefined}
+                  >
                     <span>{code}</span>
                     <strong>{label}</strong>
+                    {(index === 0 || index === 2) && <em>Hover to preview</em>}
                   </div>
                 ))}
               </div>

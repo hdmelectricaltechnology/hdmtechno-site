@@ -57,7 +57,7 @@ export default function Page() {
       <main>
         <section className="matrix-banner">
           <div className="matrix-columns" aria-hidden="true">
-            {binaryColumns.map((sequence, index) => (
+            {[...binaryColumns, ...binaryColumns].map((sequence, index) => (
               <span
                 key={`${sequence}-${index}`}
                 style={{
@@ -80,7 +80,7 @@ export default function Page() {
                 HDM Electrical Technology
                 <span className="matrix-subtitle">for Home, Business and Industry.</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-sm leading-6 text-emerald-50/75 sm:text-base">
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-sky-100/75 sm:text-base">
                 Electrical • Smart Home • AV • Security • Networking • Automation
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">

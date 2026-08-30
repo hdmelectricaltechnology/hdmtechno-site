@@ -42,23 +42,24 @@ body {
 .footer-link { @apply hover:text-emerald-300; }
 
 .matrix-banner {
-  @apply relative isolate overflow-hidden border-b border-emerald-300/20 bg-slate-950;
+  @apply relative isolate overflow-hidden border-b border-sky-300/20 bg-slate-950;
   background:
-    radial-gradient(circle at 18% 48%, rgb(16 185 129 / 0.22), transparent 24rem),
-    linear-gradient(100deg, rgb(1 8 14) 0%, rgb(2 22 26) 48%, rgb(1 12 18) 100%);
+    radial-gradient(circle at 18% 48%, rgb(14 165 233 / 0.28), transparent 24rem),
+    radial-gradient(circle at 82% 34%, rgb(37 99 235 / 0.2), transparent 30rem),
+    linear-gradient(105deg, rgb(2 6 23) 0%, rgb(3 24 54) 48%, rgb(2 13 35) 100%);
 }
 .matrix-columns {
   @apply pointer-events-none absolute inset-0 grid overflow-hidden;
-  grid-template-columns: repeat(24, minmax(0, 1fr));
+  grid-template-columns: repeat(48, minmax(0, 1fr));
   mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
   perspective: 520px;
   transform: perspective(700px) rotateX(10deg) scale(1.12);
   transform-origin: center 58%;
 }
 .matrix-columns > span {
-  @apply flex flex-col items-center font-mono text-xs font-semibold leading-6 text-emerald-300;
+  @apply flex flex-col items-center font-mono text-[11px] font-semibold leading-5 text-cyan-300;
   animation: binary-column-scroll linear infinite;
-  text-shadow: 0 0 9px rgb(52 211 153 / 0.8);
+  text-shadow: 0 0 9px rgb(34 211 238 / 0.85);
   will-change: transform;
 }
 .matrix-columns > span:nth-child(3n) { @apply text-[10px] opacity-30 blur-[0.5px]; }
@@ -68,17 +69,17 @@ body {
 .matrix-columns i { @apply not-italic; }
 .matrix-scan {
   @apply pointer-events-none absolute inset-x-0 top-0 h-24 opacity-40;
-  background: linear-gradient(to bottom, transparent, rgb(52 211 153 / 0.2), transparent);
+  background: linear-gradient(to bottom, transparent, rgb(56 189 248 / 0.28), transparent);
   animation: matrix-scan 6s ease-in-out infinite;
 }
-.matrix-kicker { @apply font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-300 sm:text-xs; }
+.matrix-kicker { @apply font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-300 sm:text-xs; }
 .matrix-copy { transform: perspective(900px) translateZ(38px) rotateX(-1.5deg); }
 .matrix-title {
-  @apply mt-4 font-mono text-3xl font-bold leading-tight tracking-[-0.045em] text-emerald-100 sm:text-4xl lg:text-5xl;
-  text-shadow: 0 1px 0 rgb(6 78 59), 0 3px 0 rgb(4 47 46), 0 0 18px rgb(52 211 153 / 0.7), 0 0 42px rgb(16 185 129 / 0.35);
+  @apply mt-4 font-mono text-3xl font-bold leading-tight tracking-[-0.045em] text-cyan-50 sm:text-4xl lg:text-5xl;
+  text-shadow: 0 1px 0 rgb(7 89 133), 0 3px 0 rgb(12 74 110), 0 0 18px rgb(56 189 248 / 0.75), 0 0 42px rgb(37 99 235 / 0.42);
 }
 .matrix-subtitle { @apply mt-2 block text-xl font-semibold tracking-[-0.03em] text-white sm:text-2xl lg:text-3xl; }
-.matrix-button { @apply border-emerald-300/40 bg-slate-950/60 text-emerald-100 hover:bg-emerald-300/10; }
+.matrix-button { @apply border-sky-300/40 bg-slate-950/60 text-sky-100 hover:bg-sky-300/10; }
 
 @keyframes binary-column-scroll {
   from { transform: translateY(-50%); }

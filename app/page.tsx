@@ -41,41 +41,53 @@ const services = [
 
 const serviceArea = ['Greenville', 'Simpsonville', 'Fountain Inn', 'Mauldin', 'Greer', 'Spartanburg'];
 
+const binaryColumns = [
+  '010011010110101001', '101101001011010110', '001101101001011010', '110010010110100101',
+  '011010110010101101', '100101001101011010', '010110101001101001', '111001010110010110',
+  '001011010011010101', '101001101010010110', '011010010110101001', '110101001001101011',
+  '010010110110100101', '100110101001011010', '001101001101010110', '111010010110100101',
+  '010101101001101001', '101100100110101010', '001011010100110101', '110100101101001010',
+  '011001010010110101', '100101101101001010', '010110010100101101', '101001011010010110',
+];
+
 export default function Page() {
   return (
     <div className="min-h-screen overflow-hidden">
       <Header />
       <main>
-        <section className="hero-section">
-          <div className="hero-orb hero-orb-one" />
-          <div className="hero-orb hero-orb-two" />
-          <div className="container-max relative z-10 grid gap-12 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:py-28">
-            <div>
-              <p className="eyebrow">Upstate South Carolina</p>
-              <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-                Smart electrical technology
-                <span className="block text-emerald-300">for home, business & industry.</span>
+        <section className="matrix-banner">
+          <div className="matrix-columns" aria-hidden="true">
+            {binaryColumns.map((sequence, index) => (
+              <span
+                key={`${sequence}-${index}`}
+                style={{
+                  animationDuration: `${3.2 + (index % 7) * 0.45}s`,
+                  animationDelay: `-${index * 0.38}s`,
+                  opacity: 0.28 + (index % 5) * 0.08,
+                }}
+              >
+                {[0, 1].map((copy) => (
+                  <b key={copy}>{sequence.split('').map((digit, digitIndex) => <i key={`${copy}-${digitIndex}`}>{digit}</i>)}</b>
+                ))}
+              </span>
+            ))}
+          </div>
+          <div className="matrix-scan" aria-hidden="true" />
+          <div className="container-max relative z-10 flex min-h-[23rem] items-center py-10 lg:min-h-[25rem]">
+            <div className="matrix-copy mx-auto max-w-4xl text-center">
+              <p className="matrix-kicker">Upstate South Carolina • Connected Solutions</p>
+              <h1 className="matrix-title">
+                HDM Electrical Technology
+                <span className="matrix-subtitle">for Home, Business and Industry.</span>
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-                HDM Electrical Technology brings electrical systems, smart technology, AV, security, networking, and automation together with one connected approach.
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-emerald-50/75 sm:text-base">
+                Electrical • Smart Home • AV • Security • Networking • Automation
               </p>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/contact" className="btn btn-primary btn-large">Request service</Link>
-                <Link href="/demo-lab" className="btn btn-outline btn-large">View technology demo</Link>
+              <div className="mt-7 flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="btn btn-primary">Request service</Link>
+                <Link href="/demo-lab" className="btn matrix-button">View technology demo</Link>
               </div>
             </div>
-            <aside className="hero-panel">
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">One connected partner</p>
-              <p className="mt-4 text-2xl font-semibold leading-snug text-white">Power. Connect. Control.</p>
-              <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-5 text-sm text-slate-300">
-                {['Electrical', 'Smart Home', 'AV', 'Security', 'Networking', 'Automation'].map((item) => (
-                  <div key={item} className="flex items-center gap-2 border-t border-white/10 pt-3">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </aside>
           </div>
         </section>
 

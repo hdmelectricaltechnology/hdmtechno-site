@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -17,8 +18,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 shadow-lg shadow-black/10 backdrop-blur-md">
       <div className="container-max flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="group flex min-w-0 items-center gap-3" aria-label="HDM Electrical Technology home">
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-400/10 ring-1 ring-emerald-400/30 transition group-hover:bg-emerald-400/15">
-            <span className="text-sm font-black tracking-tight text-emerald-400">HDM</span>
+          <div className="flex h-14 w-[5.5rem] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white px-1.5 py-1 ring-1 ring-white/20 transition group-hover:ring-emerald-400/60">
+            <Image
+              src="/brand/hdm-iguana-trademark.png"
+              alt="HDM Electrical Technology iguana trademark"
+              width={1024}
+              height={656}
+              className="h-full w-full object-contain"
+              priority
+            />
           </div>
           <span className="min-w-0 leading-tight">
             <span className="block truncate font-semibold tracking-wide text-white">HDM Electrical Technology</span>

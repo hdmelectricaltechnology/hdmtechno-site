@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'HDM Electrical Technology — Automation‑Solutions',
-  description: 'Consultation and turnkey solutions for Industrial robotics, vision, PLC/controllers, and design engineering — Commercial and Home Smart home applications using patented technologyAI technology.',
+  title: 'HDM Electrical Technology | Smart Electrical Technology',
+  description: 'Electrical, smart home, AV, security, networking, and automation solutions for home, business, and light industry in Upstate South Carolina.',
   metadataBase: new URL('https://hdmtechno.com'),
 };
 

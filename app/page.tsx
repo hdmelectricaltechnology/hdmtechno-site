@@ -1,142 +1,221 @@
-import Header from '@/components/Header';
-import FeatureCard from '@/components/FeatureCard';
-import Footer from '@/components/Footer';
+import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
-function Icon({path}:{path:string}){
-  return <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" className="text-emerald-400"><path d={path} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-}
+const servicePaths = [
+  {
+    number: '01',
+    eyebrow: 'Residential',
+    title: 'Modern technology for your home',
+    description: 'Plan and connect lighting, security, networks, entertainment, smart controls, and EV charging around the way you live.',
+    href: '/residential',
+    link: 'Explore residential',
+  },
+  {
+    number: '02',
+    eyebrow: 'Commercial',
+    title: 'Technology that works for your business',
+    description: 'Bring power, low-voltage wiring, networking, cameras, lighting controls, and AV together in one practical plan.',
+    href: '/commercial',
+    link: 'Explore commercial',
+  },
+  {
+    number: '03',
+    eyebrow: 'Automation & Controls',
+    title: 'Industrial experience. Connected manufacturing.',
+    description: 'Turn machine and controls data into useful visibility through focused troubleshooting, dashboards, alarms, trends, and integration.',
+    href: '/automation-controls',
+    link: 'Explore automation',
+  },
+];
 
-export default function Page(){
+const services = [
+  ['Security & Cameras', 'Camera and doorbell planning, installation support, and connected viewing for homes and businesses.'],
+  ['Networks & Data', 'Wi-Fi support, network drops, and the connected infrastructure behind dependable technology.'],
+  ['Smart Lighting & Controls', 'Practical lighting and control upgrades designed around the space and the people using it.'],
+  ['AV & Media', 'TVs, projectors, displays, home theater, audio/video, and conference-room technology.'],
+  ['EV Charger Support', 'Site planning and support for a clean, dependable charging setup.'],
+  ['Monitoring & Dashboards', 'Customer-understandable views of equipment status, counts, faults, trends, and performance.'],
+];
+
+const serviceArea = ['Greenville', 'Simpsonville', 'Fountain Inn', 'Mauldin', 'Greer', 'Spartanburg'];
+
+export default function Page() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-hidden">
       <Header />
       <main>
-        {/* Hero */}
-        <section className="section">
-          <div className="container-max">
-            <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tight">
-              Automation‑Integrated Solutions
-              <span className="block text-emerald-100">for Industrial, Commercial & Home</span>
-            </h1>
-            <p className="mt-6 max-w-3xl text-lg text-slate-300">
-              From robotics and machine vision to PLCs, controllers, and design engineering— HDM Electrical
-              Technology delivers consultation and turnkey integration solutions that moves projects from concept to
-              production with clarity, safety, and ROI.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#services" className="btn btn-primary">Explore services</a>
-              <a href="#contact" className="btn btn-outline">Request proposal</a>
-              <div className="flex items-center gap-2 text-sm text-slate-400">
-                <Icon path="M9 12l2 2 4-4" /> NFPA/RIA/ISO 13849 practices • Vendor‑agnostic • Documentation‑driven
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className="section">
-          <div className="container-max">
-            <div className="mb-10 flex items-end justify-between">
-              <h2 className="text-2xl sm:text-3xl font-bold">Core Services</h2>
-              <span className="badge">Rockwell • Siemens • Beckhoff • Ignition</span>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <FeatureCard title="Robotics Integration" icon={<Icon path="M12 2v4m0 12v4m8-8h-4M8 12H4m12.49-6.49l-2.83 2.83M8.34 15.66l-2.83 2.83M15.66 15.66l2.83 2.83M8.34 8.34L5.51 5.51"/>}>
-                End‑to‑end robot cell design, safety, commissioning, and cycle‑time optimization.
-              </FeatureCard>
-              <FeatureCard title="Machine Vision" icon={<Icon path="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11 3a3 3 0 100-6 3 3 0 000 6z"/>}>
-                High‑accuracy inspection, guidance, OCR, and defect detection with robust lighting/optics.
-              </FeatureCard>
-              <FeatureCard title="PLC & Controllers" icon={<Icon path="M4 7h16M4 12h16M4 17h16M8 3v4M8 17v4M16 3v4M16 17v4"/>}>
-                Rockwell/Siemens/Beckhoff programming, networks, and MES/L2 integrations.
-              </FeatureCard>
-              <FeatureCard title="Design Engineering" icon={<Icon path="M3 8l9-5 9 5v8l-9 5-9-5V8z"/>}>
-                Controls architecture, panel design, functional safety, and documentation.
-              </FeatureCard>
-            </div>
-
-            <div className="mt-8 grid md:grid-cols-3 gap-6">
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M3 12h18M12 3v18"/>Networks & Data</h3>
-                <p className="text-slate-400 text-sm mt-2">OT networks, secure remote access, historians, dashboards, and MES connectors.</p>
-              </div>
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M16 3H8a2 2 0 00-2 2v14l6-3 6 3V5a2 2 0 00-2-2z"/>Retrofits & Upgrades</h3>
-                <p className="text-slate-400 text-sm mt-2">Control migrations, safety upgrades, OEE improvements, and obsolescence planning.</p>
-              </div>
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M12 2l9 4-9 4-9-4 9-4zm0 8l9 4-9 4-9-4 9-4z"/>Panel & Electrical Design</h3>
-                <p className="text-slate-400 text-sm mt-2">UL‑ready panel designs, drawings, and field install packages with labeled I/O.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Verticals */}
-        <section id="verticals" className="section border-t border-white/5">
-          <div className="container-max">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-10">Sectors We Serve</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M3 21h18M4 21V8h16v13"/>Industrial</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mt-2">Discrete & process manufacturing, tire & rubber, packaging, material handling.</p>
-              </div>
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M3 21h18M7 21V10h10v11"/>Commercial</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mt-2">Facilities automation, energy optimization, AV & smart‑building systems.</p>
-              </div>
-              <div className="card">
-                <h3 className="text-lg font-semibold flex items-center gap-2"><Icon path="M3 12l9-9 9 9v9H3z"/>Residential</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mt-2">Premium smart‑home, security, networks, and integrated AV experiences.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why HDM */}
-        <section id="why" className="section">
-          <div className="container-max grid lg:grid-cols-2 gap-10 items-start">
+        <section className="hero-section">
+          <div className="hero-orb hero-orb-one" />
+          <div className="hero-orb hero-orb-two" />
+          <div className="container-max relative z-10 grid gap-12 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:py-28">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold">Why HDM</h2>
-              <ul className="mt-6 space-y-4 text-slate-300">
-                <li className="flex items-start gap-3"><Icon path="M5 13l4 4L19 7" /> Documentation‑first approach: functional specs, I/O lists, and risk assessments are deliverables—not afterthoughts.</li>
-                <li className="flex items-start gap-3"><Icon path="M5 13l4 4L19 7" /> Vendor‑agnostic integrations across PLCs, HMIs, vision, drives, and robots.</li>
-                <li className="flex items-start gap-3"><Icon path="M5 13l4 4L19 7" /> Safety and standards: NFPA 70/79, ISO 13849, IEC 61508 practices.</li>
-                <li className="flex items-start gap-3"><Icon path="M5 13l4 4L19 7" /> Clear project rhythm: Discover → Design → Integrate → Support.</li>
-              </ul>
+              <p className="eyebrow">Upstate South Carolina</p>
+              <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
+                Smart electrical technology
+                <span className="block text-emerald-300">for home, business & industry.</span>
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+                HDM Electrical Technology brings electrical systems, smart technology, AV, security, networking, and automation together with one connected approach.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Link href="/contact" className="btn btn-primary btn-large">Request service</Link>
+                <Link href="/demo-lab" className="btn btn-outline btn-large">View technology demo</Link>
+              </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[
-                {n:1, t:'Discover', d:'Workshop to capture goals, safety, constraints, and ROI targets.'},
-                {n:2, t:'Design', d:'Architecture, bill of materials, timeline, and risk register.'},
-                {n:3, t:'Integrate', d:'Programming, FAT/SAT, training, and documentation handoff.'},
-                {n:4, t:'Support', d:'Remote monitoring, change control, and continuous improvement.'},
-              ].map(s => (
-                <div key={s.n} className="card">
-                  <span className="badge">Step {s.n}</span>
-                  <h3 className="text-lg font-semibold mt-2">{s.t}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mt-1">{s.d}</p>
-                </div>
+            <aside className="hero-panel">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">One connected partner</p>
+              <p className="mt-4 text-2xl font-semibold leading-snug text-white">Power. Connect. Control.</p>
+              <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-5 text-sm text-slate-300">
+                {['Electrical', 'Smart Home', 'AV', 'Security', 'Networking', 'Automation'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 border-t border-white/10 pt-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="verticals" className="section bg-slate-950/45">
+          <div className="container-max">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Solutions built around your space</p>
+                <h2 className="section-title">Three paths. One technology partner.</h2>
+              </div>
+              <p className="section-intro">Start with the environment you need to improve. We connect the right systems around the problem—not the other way around.</p>
+            </div>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {servicePaths.map((path) => (
+                <article key={path.eyebrow} className="path-card">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="path-number">{path.number}</span>
+                    <span className="badge">{path.eyebrow}</span>
+                  </div>
+                  <h3 className="mt-12 text-2xl font-bold leading-tight text-white">{path.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-300">{path.description}</p>
+                  <Link href={path.href} className="text-link mt-8">{path.link} <span aria-hidden="true">→</span></Link>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact" className="section border-t border-white/5">
-          <div className="container-max grid lg:grid-cols-2 gap-10">
+        <section id="services" className="section">
+          <div className="container-max">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Practical services</p>
+                <h2 className="section-title">Technology that works together.</h2>
+              </div>
+              <p className="section-intro">From a focused upgrade to a connected system, HDM ET helps plan the path, coordinate the technology, and make the result easier to use.</p>
+            </div>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map(([title, description], index) => (
+                <article key={title} className="service-tile">
+                  <p className="text-xs font-bold tracking-[0.2em] text-emerald-400">0{index + 1}</p>
+                  <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-8 flex justify-end">
+              <Link href="/av-smart-technology" className="text-link">Explore AV & smart technology <span aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+        </section>
+
+        <section id="why" className="section bg-emerald-300 text-slate-950">
+          <div className="container-max grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold">Start your project</h2>
-              <p className="mt-4 text-slate-300 max-w-xl">Tell us about your application and desired outcomes. We’ll propose a pragmatic path that balances performance, schedule, and budget.</p>
-              <div className="mt-6 space-y-3 text-slate-300 text-sm">
-                <div className="flex items-center gap-2">📞 <span>(864) 621-2171</span></div>
-                <div className="flex items-center gap-2">✉️ <span>hdmtechno@icloud.com</span></div>
-                <div className="flex items-center gap-2">📍 <span>United States • Remote & On‑site</span></div>
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-950/70">Why HDM</p>
+              <h2 className="mt-5 text-4xl font-black leading-tight tracking-tight sm:text-5xl">Electrical thinking meets connected technology.</h2>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2">
+              {[
+                ['Connected-system approach', 'Power, connectivity, controls, and the user experience are planned as parts of one system.'],
+                ['Advanced controls perspective', 'Industrial automation depth adds a stronger technical lens to practical home and business technology.'],
+                ['Clean, considered execution', 'The work is approached with attention to planning, organization, documentation, and testing.'],
+                ['Built for long-term use', 'The goal is a dependable result that is understandable, supportable, and ready for what comes next.'],
+              ].map(([title, description]) => (
+                <article key={title} className="border-t border-slate-950/20 pt-5">
+                  <h3 className="text-lg font-bold">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-800">{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container-max">
+            <div className="lab-panel">
+              <div className="max-w-2xl">
+                <p className="eyebrow">HDM Technology Demo Lab</p>
+                <h2 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">See connected manufacturing in action.</h2>
+                <p className="mt-6 text-base leading-7 text-slate-300">A customer-understandable demonstration of how machine signals can become dashboards, alarms, trends, history, and reporting—without exposing a production system.</p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link href="/demo-lab" className="btn btn-primary btn-large">View technology demo</Link>
+                  <Link href="/contact" className="btn btn-outline btn-large">Request a live demo</Link>
+                </div>
+              </div>
+              <div className="lab-flow" aria-label="Demo Lab technology flow">
+                {['Machine logic', 'Connected data', 'Dashboards', 'Reporting'].map((item, index) => (
+                  <div key={item} className="lab-step">
+                    <span>0{index + 1}</span>
+                    <strong>{item}</strong>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="card"><ContactForm/></div>
+          </div>
+        </section>
+
+        <section className="section border-y border-white/5 bg-slate-950/40">
+          <div className="container-max grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="eyebrow">Work & projects</p>
+              <h2 className="section-title">Real work will tell the story.</h2>
+              <p className="mt-5 max-w-xl leading-7 text-slate-300">Residential, commercial, AV, security, and automation project highlights are being prepared for this site. Each featured project will focus on the problem, the approach, and the finished result.</p>
+              <p className="mt-4 text-sm text-slate-500">Project photos and case studies will be added as approved material becomes available.</p>
+            </div>
+            <div className="project-grid" aria-label="Future project categories">
+              {['Residential', 'Commercial', 'AV', 'Security', 'Automation'].map((item) => (
+                <div key={item} className="project-placeholder"><span>{item}</span></div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container-max grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="eyebrow">Local support</p>
+              <h2 className="section-title">Serving Upstate South Carolina.</h2>
+              <p className="mt-5 text-slate-400">Contact HDM ET to confirm availability for your location and project.</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {serviceArea.map((city) => <span key={city} className="location-pill">{city}</span>)}
+              <span className="location-pill">Surrounding areas</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section border-t border-white/5 bg-slate-950/60">
+          <div className="container-max grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="eyebrow">Start a conversation</p>
+              <h2 className="section-title">What are you trying to improve, connect, or automate?</h2>
+              <p className="mt-5 max-w-xl leading-7 text-slate-300">Share the space, system, or challenge you have in mind. HDM ET can use those details to understand the request and discuss a practical next step.</p>
+              <div className="mt-8 space-y-3 text-sm text-slate-300">
+                <a className="contact-link" href="tel:+18646212171">(864) 621-2171</a>
+                <a className="contact-link" href="mailto:hdmtechno@icloud.com">hdmtechno@icloud.com</a>
+              </div>
+            </div>
+            <div className="contact-panel"><ContactForm /></div>
           </div>
         </section>
       </main>

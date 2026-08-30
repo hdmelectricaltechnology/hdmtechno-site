@@ -22,17 +22,17 @@ export default function ContactForm() {
 
   return (
     <form className="grid gap-4" onSubmit={onSubmit}>
-      <input required name="name" placeholder="Your name" className="card !p-3" />
-      <input required type="email" name="email" placeholder="Email" className="card !p-3" />
-      <input name="company" placeholder="Company / Site" className="card !p-3" />
-      <input name="phone" placeholder="Phone (optional)" className="card !p-3" />
-      <textarea required name="message" placeholder="Briefly describe your project, system(s), and timeline" rows={5} className="card !p-3" />
+      <label className="grid gap-2 text-sm text-slate-300">Name<input required name="name" placeholder="Your name" className="card !p-3" /></label>
+      <label className="grid gap-2 text-sm text-slate-300">Email<input required type="email" name="email" placeholder="you@example.com" className="card !p-3" /></label>
+      <label className="grid gap-2 text-sm text-slate-300">Company or site<input name="company" placeholder="Optional" className="card !p-3" /></label>
+      <label className="grid gap-2 text-sm text-slate-300">Phone<input name="phone" placeholder="Optional" className="card !p-3" /></label>
+      <label className="grid gap-2 text-sm text-slate-300">How can we help?<textarea required name="message" placeholder="Describe the space, system, challenge, and timing." rows={5} className="card !p-3" /></label>
       <button type="submit" className="btn btn-primary" disabled={status==='sending'}>
-        {status==='sending' ? 'Sending…' : 'Send'}
+        {status==='sending' ? 'Sending…' : 'Request a consultation'}
       </button>
       {status==='sent' && <p className="text-emerald-300 text-sm">Thanks! We’ll get back to you shortly.</p>}
       {status==='error' && <p className="text-rose-300 text-sm">Something went wrong. Please try again later.</p>}
-      <p className="text-xs text-slate-500">By submitting, you agree to our consultation terms and privacy policy.</p>
+      <p className="text-xs text-slate-500">Your information will be used to respond to this inquiry.</p>
     </form>
   );
 }

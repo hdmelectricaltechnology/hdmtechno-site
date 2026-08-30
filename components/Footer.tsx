@@ -5,13 +5,13 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <span className="font-semibold text-slate-200">HDM Electrical Technology</span>
           <span>•</span>
-          <a className="footer-link" href="mailto:contact@hdmtechno@icloud.com">hdmtechno@icloud.com</a>
+          <a className="footer-link" href="mailto:hdmtechno@icloud.com">hdmtechno@icloud.com</a>
         </div>
         <div className="flex items-center gap-4">
-          <a className="footer-link" href="#services">Services</a>
-          <a className="footer-link" href="#verticals">Sectors</a>
-          <a className="footer-link" href="#why">Why HDM</a>
-          <a className="footer-link" href="#contact">Contact</a>
+          <a className="footer-link" href="/#services">Services</a>
+          <a className="footer-link" href="/#verticals">Solutions</a>
+          <a className="footer-link" href="/#why">Why HDM</a>
+          <a className="footer-link" href="/#contact">Contact</a>
         </div>
         <div>© {new Date().getFullYear()} hdmtechno.com</div>
       </div>

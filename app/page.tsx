@@ -102,15 +102,20 @@ export default function Page() {
             </div>
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {servicePaths.map((path) => (
-                <article key={path.eyebrow} className="path-card">
+                <Link
+                  key={path.eyebrow}
+                  href={path.href}
+                  className="path-card block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                  aria-label={`${path.link}: ${path.title}`}
+                >
                   <div className="flex items-start justify-between gap-4">
                     <span className="path-number">{path.number}</span>
                     <span className="badge">{path.eyebrow}</span>
                   </div>
                   <h3 className="mt-12 text-2xl font-bold leading-tight text-white">{path.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-slate-300">{path.description}</p>
-                  <Link href={path.href} className="text-link mt-8">{path.link} <span aria-hidden="true">→</span></Link>
-                </article>
+                  <span className="text-link mt-8">{path.link} <span aria-hidden="true">→</span></span>
+                </Link>
               ))}
             </div>
           </div>

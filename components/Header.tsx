@@ -2,36 +2,66 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const navigation = [
+  { label: 'Residential', href: '/residential' },
+  { label: 'Commercial', href: '/commercial' },
+  { label: 'AV & Smart', href: '/av-smart-technology' },
+  { label: 'Automation', href: '/automation-controls' },
+  { label: 'Demo Lab', href: '/demo-lab' },
+  { label: 'About', href: '/about' },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
-      <div className="container-max h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-xl bg-emerald-400/10 grid place-items-center ring-1 ring-emerald-400/30">
-            <span className="text-emerald-400 font-bold">HDM</span>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 shadow-lg shadow-black/10 backdrop-blur-md">
+      <div className="container-max flex min-h-20 items-center justify-between gap-6">
+        <Link href="/" className="group flex min-w-0 items-center gap-3" aria-label="HDM Electrical Technology home">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-400/10 ring-1 ring-emerald-400/30 transition group-hover:bg-emerald-400/15">
+            <span className="text-sm font-black tracking-tight text-emerald-400">HDM</span>
           </div>
-          <span className="font-semibold tracking-wide">HDM Electrical Technology</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#verticals" className="nav-link">Sectors</a>
-          <a href="#why" className="nav-link">Why HDM</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate font-semibold tracking-wide text-white">HDM Electrical Technology</span>
+            <span className="hidden text-xs text-slate-400 sm:block">Home • Business • Industry</span>
+          </span>
+        </Link>
+        <nav className="hidden items-center gap-5 text-sm xl:flex" aria-label="Primary navigation">
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="nav-link whitespace-nowrap">
+              {item.label}
+            </Link>
+          ))}
         </nav>
-        <div className="hidden sm:block">
-          <Link href="#contact" className="btn btn-primary">Book a consult</Link>
+        <div className="hidden shrink-0 sm:block">
+          <Link href="/contact" className="btn btn-primary">Request service</Link>
         </div>
-        <button className="md:hidden btn btn-outline" onClick={() => setOpen(!open)}>Menu</button>
+        <button
+          type="button"
+          className="btn btn-outline xl:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((current) => !current)}
+        >
+          {open ? 'Close' : 'Menu'}
+        </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-slate-800 bg-slate-950/80">
-          <div className="container-max py-4 flex flex-col gap-3 text-sm">
-            <a href="#services" className="nav-link" onClick={() => setOpen(false)}>Services</a>
-            <a href="#verticals" className="nav-link" onClick={() => setOpen(false)}>Sectors</a>
-            <a href="#why" className="nav-link" onClick={() => setOpen(false)}>Why HDM</a>
-            <a href="#contact" className="nav-link" onClick={() => setOpen(false)}>Contact</a>
-          </div>
+        <div id="mobile-navigation" className="border-t border-slate-800 bg-slate-950 xl:hidden">
+          <nav className="container-max flex flex-col gap-1 py-4 text-sm" aria-label="Mobile navigation">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg px-3 py-3 text-slate-200 transition hover:bg-white/5 hover:text-emerald-300"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="btn btn-primary mt-3 justify-center sm:hidden" onClick={() => setOpen(false)}>
+              Request service
+            </Link>
+          </nav>
         </div>
       )}
     </header>

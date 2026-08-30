@@ -53,7 +53,7 @@ body {
 }
 .matrix-columns {
   @apply pointer-events-none absolute inset-0 grid overflow-hidden;
-  grid-template-columns: repeat(64, minmax(0, 1fr));
+  grid-template-columns: repeat(72, minmax(0, 1fr));
   mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
   perspective: 520px;
   transform: perspective(700px) rotateX(10deg) scale(1.12);

@@ -57,7 +57,7 @@ export default function Page() {
       <main>
         <section className="matrix-banner">
           <div className="matrix-columns" aria-hidden="true">
-            {[...binaryColumns, ...binaryColumns].map((sequence, index) => (
+            {[...binaryColumns, ...binaryColumns, ...binaryColumns].map((sequence, index) => (
               <span
                 key={`${sequence}-${index}`}
                 style={{

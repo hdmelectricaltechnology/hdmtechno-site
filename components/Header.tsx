@@ -15,16 +15,16 @@ const navigation = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 shadow-lg shadow-black/10 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-sky-400/15 bg-[#020b24]/95 shadow-lg shadow-black/10 backdrop-blur-md">
       <div className="container-max flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="group flex min-w-0 items-center gap-3" aria-label="HDM Electrical Technology home">
-          <div className="flex h-14 w-[5.5rem] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white px-1.5 py-1 ring-1 ring-white/20 transition group-hover:ring-emerald-400/60">
+          <div className="flex h-12 w-20 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-sky-300/30 bg-[#0d2b59] p-1">
             <Image
               src="/brand/hdm-iguana-trademark.png"
               alt="HDM Electrical Technology iguana trademark"
               width={1024}
               height={656}
-              className="h-full w-full object-contain"
+              className="brand-mark-dark h-full w-full object-contain object-center"
               priority
             />
           </div>

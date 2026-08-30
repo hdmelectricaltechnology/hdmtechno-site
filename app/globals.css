@@ -40,6 +40,9 @@ body {
 .nav-link { @apply hover:text-emerald-300; }
 .section { @apply py-16 sm:py-24; }
 .footer-link { @apply hover:text-emerald-300; }
+.brand-mark-dark {
+  filter: brightness(1.22) saturate(1.08) drop-shadow(0 0 6px rgb(56 189 248 / 0.48));
+}
 
 .matrix-banner {
   @apply relative isolate overflow-hidden border-b border-sky-300/20 bg-slate-950;
